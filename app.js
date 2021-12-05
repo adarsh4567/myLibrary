@@ -1,7 +1,7 @@
 // if(process.env.NODE_ENV !== 'production'){
 //     require('dotenv').parse();
 // }
-
+const DATA_BASE = "mongodb://127.0.0.1:27017/library";
 const express = require('express');
 const app = express();
 const layout = require('express-ejs-layouts');
@@ -16,7 +16,7 @@ app.use(express.static('public'));
 app.use(layout);
 app.use('/',routes);
 
-mongoose.connect("mongodb://127.0.0.1:27017/library",{
+mongoose.connect(DATA_BASE,{
     useNewUrlParser:true
 }).then(()=>{
     console.log('connected to database');
